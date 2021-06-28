@@ -1,0 +1,82 @@
+{#
+/**
+ * @file views-bootstrap-grid.html.twig
+ * Default simple view template to display Bootstrap Grids.
+ *
+ *
+ * - columns: Contains rows grouped by columns.
+ * - rows: Contains a nested array of rows. Each row contains an array of
+ *   columns.
+ * - column_type: Contains a number (default Bootstrap grid system column type).
+ *
+ * @ingroup views_templates
+ */
+#}
+<style>
+  .views-field-field-blog-title{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 30px;
+  }
+  
+  .views-field-field-blog-body h3,p{
+    color: white !important;
+  }
+  .views-field-field-blog-link a{
+   border-left: 1px solid red;
+   border-right: 1px solid red;
+    padding: 5px;
+    color: white;
+    
+  }
+  .views-field-field-blog-link a:hover{
+    border-left: 2px solid white;
+   border-right: 2px solid white;
+    color: black;
+    text-decoration: none;
+  }
+  image-style-large img{
+   display: flex;
+  margin-right: auto;
+    margin-left: auto;
+    
+  }
+  .field field--name-field-blog-image{
+     display: flex;
+  margin-right: auto;
+    margin-left: auto;
+    
+  }
+  img{
+    width: 87%;
+    border-radius: 5px;
+    margin-top: 50px;
+  }
+  .row-color{
+     background: linear-gradient(to bottom, #dd2476, #ff512f);
+  }
+  .hr{
+    margin-top: 35px;
+    border-bottom: 1px solid white;
+  }
+</style>
+{%
+  set classes = [
+    'views-view-grid',
+  ]
+%}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+<div class="row-color">
+<div id="{{ id }}" {{ attributes.addClass(classes,'container') }}>
+  <div class="row">
+    {% for row in rows %}
+      <div {{ row_attributes.addClass(options.row_class,'text-center','hr','text-white') }}>
+        {{ row }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
